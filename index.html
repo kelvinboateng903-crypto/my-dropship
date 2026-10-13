@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Precious Gems | Fashion Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="logo">PRECIOUS <span>GEMS</span></div>
+  <button class="cart-btn" onclick="openCart()">Cart <b id="cartCount">0</b></button>
+</header>
+
+<section class="hero">
+  <div>
+    <p class="eyebrow">NEW COLLECTION</p>
+    <h1>Style that feels<br><span>precious.</span></h1>
+    <p>Trendy clothes and fashion pieces delivered to your doorstep.</p>
+    <a href="#shop" class="shop-now">Shop now</a>
+  </div>
+</section>
+
+<section id="shop" class="products-section">
+  <div class="section-title">
+    <div><p class="eyebrow">OUR STORE</p><h2>Shop clothes</h2></div>
+    <select id="categoryFilter" onchange="renderProducts()">
+      <option value="all">All items</option>
+      <option value="shirts">Shirts</option>
+      <option value="dresses">Dresses</option>
+      <option value="hoodies">Hoodies</option>
+      <option value="trousers">Trousers</option>
+    </select>
+  </div>
+  <div id="products" class="grid"></div>
+</section>
+
+<div id="cartOverlay" class="overlay hidden">
+  <div class="cart-panel">
+    <button class="close" onclick="closeCart()">×</button>
+    <h2>Your Cart</h2>
+    <div id="cartItems"></div>
+    <div class="cart-total"><span>Total</span><strong id="cartTotal">₦0</strong></div>
+    <button class="checkout-btn" onclick="openCheckout()">Proceed to Checkout</button>
+  </div>
+</div>
+
+<div id="checkoutOverlay" class="overlay hidden">
+  <div class="checkout-panel">
+    <button class="close" onclick="closeCheckout()">×</button>
+    <h2>Checkout</h2>
+    <div id="checkoutSummary"></div>
+    <form id="checkoutForm" onsubmit="placeOrder(event)">
+      <label>Full name<input id="name" required placeholder="Your full name"></label>
+      <label>Phone number<input id="phone" type="tel" required placeholder="080..."></label>
+      <label>Email<input id="email" type="email" required placeholder="you@example.com"></label>
+      <label>Delivery address<textarea id="address" required placeholder="House number, street, city"></textarea></label>
+      <label>Payment method
+        <select id="payment" required>
+          <option value="">Choose payment method</option>
+          <option>Pay on delivery</option>
+          <option>Bank transfer</option>
+          <option>Card payment</option>
+        </select>
+      </label>
+      <button class="checkout-btn" type="submit">Place Order</button>
+    </form>
+  </div>
+</div>
+
+<div id="successOverlay" class="overlay hidden">
+  <div class="success">
+    <div class="check">✓</div>
+    <h2>Order received!</h2>
+    <p id="successText"></p>
+    <button class="checkout-btn" onclick="closeAll()">Continue Shopping</button>
+  </div>
+</div>
+
+<footer>
+  <div class="logo">PRECIOUS <span>GEMS</span></div>
+  <p>© 2026 Precious Gems. Fashion made simple.</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
